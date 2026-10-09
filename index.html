@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free Posing Analysis | Posed by Taylor</title>
+<meta name="description" content="Send me your posing photos and I'll record you a personal video breaking down your posing. Totally free.">
+<meta property="og:title" content="Free Posing Analysis | Posed by Taylor">
+<meta property="og:description" content="Get a personal video breakdown of your posing, totally free.">
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500;1,600&family=DM+Sans:wght@400;500;600;700&display=swap">
+<style>
+  :root{
+    --bg:#FFF3FA; --pink-section:#FFDDF1; --card:#FFFFFF; --input:#FFF9FD;
+    --logo-pink:#FF3FB6; --heading-pink:#E62BA3; --button:#C81E8C; --link:#A3176F;
+    --ink:#3A0E2E; --ink-2:#5E2650; --ink-3:#7C4569;
+    --border:#F2C6E0; --pill:#FF9AD6; --num:#FF8FD0; --on-dark:#F7D4EA;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'DM Sans','Helvetica Neue',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:var(--link)} a:hover{color:#7E0F55}
+  img{max-width:100%}
+  .serif{font-family:'Playfair Display',Georgia,serif}
+  .accent{font-style:italic;color:var(--heading-pink)}
+  .wrap{max-width:1160px;margin:0 auto;padding-left:24px;padding-right:24px}
+  header.top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-top:24px}
+  header.top img{height:76px;width:auto;display:block}
+  .place{font-size:14px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+
+  .hero{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:48px;align-items:center;padding-top:56px;padding-bottom:72px}
+  .hero-copy{display:flex;flex-direction:column;gap:22px}
+  .tag{align-self:flex-start;background:var(--pink-section);color:var(--link);font-size:14px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:8px 16px;border-radius:999px}
+  h1{margin:0;font-size:clamp(2.6rem,6vw,4.2rem);line-height:1.05;font-weight:700;letter-spacing:-.02em}
+  .lead{margin:0;font-size:19px;line-height:1.6;color:var(--ink-2);max-width:34rem}
+  .pills{display:flex;flex-wrap:wrap;gap:10px}
+  .pills span{border:1.5px solid var(--pill);border-radius:999px;padding:6px 14px;font-size:15px;font-weight:500}
+  .small{margin:0;font-size:16px;line-height:1.6;color:var(--ink-3)}
+
+  form.card{background:var(--card);border-radius:28px;padding:32px;box-shadow:0 24px 60px rgba(160,20,110,.12);display:flex;flex-direction:column;gap:18px;scroll-margin-top:24px}
+  .card h2{margin:0;font-size:28px;font-weight:700}
+  .field{display:flex;flex-direction:column;gap:6px}
+  .field label{font-size:15px;font-weight:600}
+  .field input,.field select{height:50px;padding:0 16px;border:1.5px solid var(--border);border-radius:14px;background:var(--input);font:inherit;font-size:16px;color:var(--ink);width:100%}
+  .field select{padding:0 12px}
+  .field input:focus,.field select:focus{outline:3px solid var(--pill);outline-offset:1px;border-color:var(--button)}
+  .two{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:14px}
+  .notice{margin:0;font-size:13px;line-height:1.5;color:var(--ink-3)}
+  .error{margin:0;background:#FFE6F4;color:var(--link);font-size:15px;font-weight:500;padding:12px 14px;border-radius:12px}
+  .error[hidden]{display:none}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:58px;padding:0 36px;border:0;border-radius:999px;background:var(--button);color:#fff;font:inherit;font-size:18px;font-weight:700;text-decoration:none;cursor:pointer;box-shadow:0 10px 24px rgba(200,30,140,.3)}
+  .btn:hover{color:#fff;filter:brightness(1.06)}
+  .btn:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+  .btn[disabled]{opacity:.7;cursor:wait}
+  .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+  section h2.big{margin:0;font-size:clamp(2rem,4vw,2.8rem);font-weight:700}
+  .how{background:var(--card)}
+  .how .wrap{padding-top:72px;padding-bottom:72px;display:flex;flex-direction:column;gap:40px}
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:24px}
+  .step{background:var(--bg);border-radius:24px;padding:28px;display:flex;flex-direction:column;gap:12px}
+  .step .n{width:48px;height:48px;border-radius:999px;background:var(--button);color:#fff;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:700}
+  .step h3{margin:0;font-size:20px}
+  .step p{margin:0;font-size:16px;line-height:1.6;color:var(--ink-2)}
+
+  .look{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:40px;padding-top:72px;padding-bottom:72px}
+  .ticks{display:flex;flex-direction:column;gap:14px}
+  .ticks div{display:flex;gap:14px;align-items:flex-start;font-size:17px;line-height:1.55}
+  .ticks svg{flex-shrink:0;margin-top:2px}
+  .checklist{background:var(--ink);color:#FFF3FA;border-radius:28px;padding:32px;display:flex;flex-direction:column;gap:16px}
+  .checklist h3{margin:0;font-size:26px}
+  .checklist p{margin:0;font-size:16px;line-height:1.6;color:var(--on-dark)}
+  .checklist ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;font-size:16px;line-height:1.5;counter-reset:c}
+  .checklist li{display:flex;gap:12px;counter-increment:c}
+  .checklist li::before{content:"0" counter(c);color:var(--num);font-weight:700}
+
+  .about{background:var(--pink-section)}
+  .about .wrap{padding-top:72px;padding-bottom:72px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:40px;align-items:center}
+  .photo{aspect-ratio:4/5;max-width:420px;width:100%;justify-self:center;border-radius:28px;object-fit:cover;background:var(--bg)}
+  .photo-placeholder{aspect-ratio:4/5;max-width:420px;width:100%;justify-self:center;border-radius:28px;background:var(--bg);border:2px dashed #F07CC4;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--ink-3);font-weight:600;padding:24px}
+  .about p{margin:0;font-size:18px;line-height:1.65}
+  .about .txt{display:flex;flex-direction:column;gap:18px}
+
+  .final{max-width:820px;margin:0 auto;padding:80px 24px;text-align:center;display:flex;flex-direction:column;gap:22px;align-items:center}
+  .final h2{margin:0;font-size:clamp(2.2rem,5vw,3.2rem);line-height:1.1}
+  .final p{margin:0;font-size:18px;line-height:1.6;color:var(--ink-2)}
+
+  .thanks{max-width:760px;margin:0 auto;padding:64px 24px 80px;display:flex;flex-direction:column;gap:28px;align-items:center;text-align:center}
+  .thanks h1{font-size:clamp(2.4rem,6vw,3.8rem);line-height:1.08}
+  .thanks .opts{width:100%;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:16px;text-align:left}
+  .thanks .opt{background:var(--card);border-radius:22px;padding:24px;display:flex;flex-direction:column;gap:8px}
+  .thanks .opt h2{margin:0;font-size:19px}
+  .thanks .opt p{margin:0;font-size:16px;line-height:1.6;color:var(--ink-2)}
+  .thanks .checklist{width:100%;text-align:left}
+  [hidden]{display:none !important}
+
+  .reviews .wrap{padding-top:72px;padding-bottom:16px;display:flex;flex-direction:column;gap:40px}
+  .quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:24px;align-items:start}
+  .quote{margin:0;background:var(--card);border-radius:24px;padding:32px 28px 28px;display:flex;flex-direction:column;gap:16px;box-shadow:0 16px 40px rgba(160,20,110,.08)}
+  .quote .qhead{display:flex;justify-content:space-between;align-items:center;gap:16px}
+  .quote .mark{font-family:'Playfair Display',Georgia,serif;font-size:64px;line-height:1;height:36px;overflow:visible;color:var(--logo-pink);margin-top:-4px}
+  .quote .stars{display:flex;gap:3px}
+  .quote blockquote{margin:0;font-size:17px;line-height:1.65;color:var(--ink)}
+  .quote figcaption{font-weight:700;font-size:15px;color:var(--link)}
+
+  footer{border-top:1px solid #F5CDE4;padding:28px 24px;text-align:center;font-size:14px;color:var(--ink-3);display:flex;flex-direction:column;align-items:center;gap:6px}
+  footer img{height:56px;width:auto}
+</style>
+</head>
+<body>
+
+<header class="wrap top">
+  <img src="logo.png" alt="Posed by Taylor">
+  <div class="place">Posing coach · Leeds</div>
+</header>
+
+<main id="landing">
+  <section class="wrap hero">
+    <div class="hero-copy">
+      <div class="tag">Free posing analysis</div>
+      <h1 class="serif">Let's get your posing <span class="accent">stage ready.</span></h1>
+      <p class="lead">Send me your posing photos and I'll record you a personal video breaking down what's already working, what to tweak, and how to bring more confidence to your stage presence. Totally free.</p>
+      <div class="pills"><span>Fit Model</span><span>Bikini</span><span>Wellness</span><span>Figure</span></div>
+      <p class="small">Whether you have your photos to hand or are taking them tomorrow, pop your details in now and you'll be straight through to my WhatsApp so I know to expect them from you.</p>
+    </div>
+
+    <form class="card" id="claim" novalidate>
+      <div class="field" style="gap:6px">
+        <h2 class="serif">Claim your free analysis</h2>
+        <p class="notice" style="font-size:15px">It only takes 30 seconds girl, let's go!</p>
+      </div>
+      <div class="field">
+        <label for="first">First name</label>
+        <input id="first" name="FIRSTNAME" type="text" autocomplete="given-name" required>
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input id="email" name="EMAIL" type="email" autocomplete="email" required>
+      </div>
+      <div class="two">
+        <div class="field">
+          <label for="category">Your category</label>
+          <select id="category" name="CATEGORY" required>
+            <option value="">Choose one</option>
+            <option>Fit Model</option><option>Bikini</option><option>Wellness</option>
+            <option>Figure</option><option>Other</option><option>Not sure yet</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="show">Show date</label>
+          <input id="show" name="SHOW_DATE" type="text" placeholder="e.g. May 2027 / not booked">
+        </div>
+      </div>
+      <div class="field">
+        <label for="insta">Instagram handle</label>
+        <input id="insta" name="INSTAGRAM" type="text" placeholder="@">
+      </div>
+      <div class="hp" aria-hidden="true"><label for="hpf">Leave this empty</label><input id="hpf" name="email_address_check" type="text" tabindex="-1" autocomplete="off"></div>
+      <p class="notice">By signing up you'll also get posing tips, updates and offers from Posed by Taylor by email. Unsubscribe any time. See my <a href="privacy.html">privacy notice</a>.</p>
+      <p class="error" id="error" role="alert" hidden></p>
+      <button class="btn" type="submit" id="submitBtn">Claim your free posing analysis</button>
+      <p class="notice" style="text-align:center">No catch. You'll message me on WhatsApp next.</p>
+    </form>
+  </section>
+
+  <section class="how">
+    <div class="wrap">
+      <h2 class="big serif" style="text-align:center">How it <span class="accent">works</span></h2>
+      <div class="steps">
+        <div class="step"><div class="n serif">1</div><h3>Pop in your details</h3><p>Tell me your category and when you're competing, so your feedback is tailored to you.</p></div>
+        <div class="step"><div class="n serif">2</div><h3>WhatsApp me your photos</h3><p>Send them straight away, or message me now and send them tomorrow. Whatever suits you.</p></div>
+        <div class="step"><div class="n serif">3</div><h3>Get your video breakdown</h3><p>I'll record a personal video going through your poses with clear, doable tweaks you can start practising.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap look">
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <h2 class="big serif">What I'll <span class="accent">look at</span></h2>
+      <div class="ticks">
+        <div><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF3FB6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Your mandatory poses, and how you're showing off your shape</span></div>
+        <div><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF3FB6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Posture, lines and overall presentation</span></div>
+        <div><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF3FB6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Tweaks specific to your category, so you really hit the category criteria</span></div>
+      </div>
+    </div>
+    <div class="checklist">
+      <h3 class="serif">Photo checklist</h3>
+      <p>To get the most out of your feedback, send:</p>
+      <ol>
+        <li>All mandatory poses</li>
+        <li>Images where your full body is in the frame</li>
+        <li>Images with good lighting</li>
+        <li>Images where you are wearing a posing suit, or shorts and sports bra, and heels</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="about">
+    <div class="wrap">
+      <img class="photo" src="ellie.jpg" alt="Ellie on stage in a pink bikini, smiling mid-pose" width="880" height="1100" loading="lazy">
+      <div class="txt">
+        <h2 class="big serif">Hi, I'm <span class="accent">Ellie!</span></h2>
+        <p>I'm a certified posing coach and a fit model competitor myself, so I know exactly how it feels to step on stage and want every second to count.</p>
+        <p>I coach female athletes in the Fit Model, Bikini, Wellness, and Figure categories to pose with confidence and flow, and to enjoy the process.</p>
+        <p>Competing is a massive investment, and I therefore believe posing should be a priority for all female athletes, especially as it can genuinely be the difference between placings.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="reviews">
+    <div class="wrap">
+      <h2 class="big serif" style="text-align:center">What my <span class="accent">girls</span> say</h2>
+      <div class="quotes">
+        <figure class="quote">
+          <div class="qhead"><div class="mark" aria-hidden="true">&ldquo;</div><div class="stars" role="img" aria-label="5 out of 5 stars"><svg width="20" height="20" viewBox="0 0 24 24" fill="#FF3FB6" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5-4.8-4.6 6.6-.9z"/></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="#FF3FB6" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5-4.8-4.6 6.6-.9z"/></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="#FF3FB6" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5-4.8-4.6 6.6-.9z"/></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="#FF3FB6" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5-4.8-4.6 6.6-.9z"/></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="#FF3FB6" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5-4.8-4.6 6.6-.9z"/></svg></div></div>
+          <blockquote>Ellie has taken me from being shy, stiff and awkward, to being confident enough to practise my posing in heels in a busy gym. That was a massive hurdle, and it wouldn't have happened without her helping me see my potential. She has such a good eye for detail and knows how to get the best posing to suit your physique &hearts;&#xFE0F;</blockquote>
+          <figcaption>Coleen H.</figcaption>
+        </figure>
+        <figure class="quote">
+          <div class="qhead"><div class="mark" aria-hidden="true">&ldquo;</div><div class="stars" role="img" aria-label="5 out of 5 stars"><svg width="20" height="20" viewBox="0 0 24 24" fill="#FF3FB6" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5-4.8-4.6 6.6-.9z"/></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="#FF3FB6" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5-4.8-4.6 6.6-.9z"/></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="#FF3FB6" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5-4.8-4.6 6.6-.9z"/></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="#FF3FB6" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5-4.8-4.6 6.6-.9z"/></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="#FF3FB6" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5-4.8-4.6 6.6-.9z"/></svg></div></div>
+          <blockquote>If Carlsberg did posing coaches&hellip; Ellie takes meticulous care to get to know the athlete so she can personalise their routines. She breaks things down so clearly and has some brilliant and hilarious cues! I have progressed enormously, and she makes every lesson fun and something I look forward to.</blockquote>
+          <figcaption>Kathryn T.</figcaption>
+        </figure>
+        <figure class="quote">
+          <div class="qhead"><div class="mark" aria-hidden="true">&ldquo;</div><div class="stars" role="img" aria-label="5 out of 5 stars"><svg width="20" height="20" viewBox="0 0 24 24" fill="#FF3FB6" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5-4.8-4.6 6.6-.9z"/></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="#FF3FB6" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5-4.8-4.6 6.6-.9z"/></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="#FF3FB6" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5-4.8-4.6 6.6-.9z"/></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="#FF3FB6" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5-4.8-4.6 6.6-.9z"/></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="#FF3FB6" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5-4.8-4.6 6.6-.9z"/></svg></div></div>
+          <blockquote>Taylor was unbelievable from the first lesson. She is a teacher and it was evident immediately that she could break things down in the exact way I needed! She always had an alternative ready to try if one pose didn't feel right. Can't rate her enough!</blockquote>
+          <figcaption>Zoe</figcaption>
+        </figure>
+        <figure class="quote">
+          <div class="qhead"><div class="mark" aria-hidden="true">&ldquo;</div><div class="stars" role="img" aria-label="5 out of 5 stars"><svg width="20" height="20" viewBox="0 0 24 24" fill="#FF3FB6" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5-4.8-4.6 6.6-.9z"/></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="#FF3FB6" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5-4.8-4.6 6.6-.9z"/></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="#FF3FB6" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5-4.8-4.6 6.6-.9z"/></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="#FF3FB6" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5-4.8-4.6 6.6-.9z"/></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="#FF3FB6" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5-4.8-4.6 6.6-.9z"/></svg></div></div>
+          <blockquote>As a first timer to bodybuilding and posing, I couldn't have found a better coach than Ellie to start my posing journey. My confidence has grown after each lesson, and her friendly, caring attitude has really helped me feel at ease when completely out of my comfort zone.</blockquote>
+          <figcaption>Natalie C.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="final">
+    <h2 class="serif">Ready to feel <span class="accent">confident</span> on stage?</h2>
+    <p>Grab your free posing analysis now. Photos today or tomorrow, it's up to you.</p>
+    <a class="btn" href="#claim">Claim your free posing analysis</a>
+  </section>
+</main>
+
+<main id="thanks" class="thanks" hidden>
+  <div class="tag" style="align-self:center">One more step</div>
+  <h1 class="serif" style="margin:0">You're in, <span class="accent" id="thanksName">lovely</span>!</h1>
+  <p class="lead">Now let's get those photos over to me. Tap the button below to message me on WhatsApp.</p>
+  <div class="opts">
+    <div class="opt"><h2>Got your photos to hand?</h2><p>Send them straight over in the chat and I'll get started on your video.</p></div>
+    <div class="opt"><h2>Taking them tomorrow?</h2><p>Message me now to save your spot, then send them over whenever you're ready.</p></div>
+  </div>
+  <a class="btn" id="waBtn" href="#"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.6A8.4 8.4 0 1 1 21 11.5z"/></svg>Message me on WhatsApp</a>
+  <div class="checklist">
+    <h3 class="serif">Your photo checklist</h3>
+    <ol>
+      <li>All mandatory poses</li>
+      <li>Images where your full body is in the frame</li>
+      <li>Images with good lighting</li>
+      <li>Images where you are wearing a posing suit, or shorts and sports bra, and heels</li>
+    </ol>
+  </div>
+  <p class="small">Once I've got your photos, your personal video will be with you within 48 hours. Keep an eye on your inbox too for posing tips for your category.</p>
+</main>
+
+<footer>
+  <img src="logo.png" alt="Posed by Taylor">
+  <span><a href="mailto:posedbytaylor@gmail.com">posedbytaylor@gmail.com</a> · <a href="https://www.instagram.com/_posedbytaylor/" target="_blank" rel="noopener">@_posedbytaylor</a> · <a href="privacy.html">Privacy notice</a></span>
+</footer>
+
+<script>
+  /* ====== SETTINGS: fill these two in ====== */
+  // Your WhatsApp number: 44 then your mobile number without the first 0. E.g. 07123 456789 -> 447123456789
+  const WHATSAPP_NUMBER = '447568713441';
+  // Your Brevo form address: in Brevo go to Contacts > Forms > your form > Share > "Embed" code,
+  // and copy the URL from action="..." (it looks like https://xxxx.sibforms.com/serve/XXXXXXXX)
+  const BREVO_FORM_URL = 'https://b3ef44cc.sibforms.com/serve/MUIFAPjHfV_7NMnB7rYBK2W_u-hHieVHSqubnJia1o4vBybSNw62pBKODfoTI97TkFFMp9RN-UhUMKpqTWJJPJv9N0FkQUWBK58_JI5ib_TxaEO9UURkdY5HG0LGNReMvqpyPtgLbgPsTR27s1v2KjVFviaFqSI-KaM-cjUAM3-I8o0cGR6OMReKb5iC6bfwOhOuVOGOP8sF-Zcxpw==';
+  /* ========================================== */
+
+  const form = document.getElementById('claim');
+  const err = document.getElementById('error');
+  const btn = document.getElementById('submitBtn');
+
+  function showError(msg){ err.textContent = msg; err.hidden = false; }
+
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    err.hidden = true;
+    const first = form.FIRSTNAME.value.trim();
+    const email = form.EMAIL.value.trim();
+    const category = form.CATEGORY.value;
+    if (!first) return showError('Please pop your first name in.');
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return showError('Please check your email address.');
+    if (!category) return showError('Please choose your category.');
+    if (form.email_address_check.value) return; // spam bot
+
+    btn.disabled = true; btn.textContent = 'Sending...';
+
+    const data = new URLSearchParams();
+    data.append('FIRSTNAME', first);
+    data.append('EMAIL', email);
+    data.append('CATEGORY', category);
+    data.append('SHOW_DATE', form.SHOW_DATE.value.trim());
+    data.append('INSTAGRAM', form.INSTAGRAM.value.trim());
+    data.append('email_address_check', '');
+    data.append('locale', 'en');
+
+    if (BREVO_FORM_URL.indexOf('http') === 0) {
+      try {
+        await Promise.race([
+          fetch(BREVO_FORM_URL, { method: 'POST', mode: 'no-cors', body: data }),
+          new Promise(function(r){ setTimeout(r, 5000); })
+        ]);
+      } catch (x) { /* still send them to WhatsApp */ }
+    }
+
+    let msg = "Hi Ellie! It's " + first + ", I've just signed up for my free posing analysis (" + category + ") \uD83D\uDC95";
+    document.getElementById('waBtn').href = 'https://wa.me/' + WHATSAPP_NUMBER.replace(/\D/g, '') + '?text=' + encodeURIComponent(msg);
+    document.getElementById('thanksName').textContent = first;
+    document.getElementById('landing').hidden = true;
+    document.getElementById('thanks').hidden = false;
+    window.scrollTo(0, 0);
+  });
+</script>
+</body>
+</html>
